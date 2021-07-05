@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
 }
-.nav{
+.navFlex{
     display: flex;
     flex-direction: row;
     align-items: center;
