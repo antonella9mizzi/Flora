@@ -1,0 +1,12 @@
+.displayItems{
+    display: flex;
+    flex-direction: row;
+    padding-right: 1%;
+    margin: 2%;
+    align-items: center;
+ 
+}
+.imgItems{
+    width: 15vw;
+    height: auto;
+}
