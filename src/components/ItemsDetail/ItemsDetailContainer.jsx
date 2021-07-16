@@ -45,7 +45,7 @@ const ItemsDetailContainer = () => {
     useEffect(
         ()=> {
             setItemDetail();
-            GetItemDetail().then(result)
+            GetItemDetail().then((resolve)=>setItemDetail(ArrayItems))
         },
         [idParams]
     )

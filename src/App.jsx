@@ -22,7 +22,7 @@ function App() {
         <Route exact path="/">
           <ItemsListContainer greeting="Welcome back!"/>
         </Route>
-        <Route path="/Items/:id">
+        <Route path="/items/:id">
           <ItemsDetailContainer/>
         </Route>
           
