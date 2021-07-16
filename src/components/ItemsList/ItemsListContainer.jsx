@@ -7,7 +7,7 @@ import ItemsCSS from './Items.module.css';
 const ItemsListContainer = (props) =>{
 
     const [displayItems, setDisplayItems] = useState([])
-    const GetItems = () => {return new Promise ((resolve, reject) =>{
+    const GetItems = () => {return new Promise ((resolve) =>{
         setTimeout(()=>{
             resolve(ArrayItems)
         },2000)
@@ -53,7 +53,6 @@ const ItemsListContainer = (props) =>{
     return(
         <div>
             <h1>{props.greeting}</h1>
-            <ItemCount initial="0" stock="5"/>
             <ReturnItems/>
         </div>
     )

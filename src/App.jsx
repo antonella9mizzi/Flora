@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NavBar from './components/NavBar/NavBar';
 import ItemsListContainer from './components/ItemsList/ItemsListContainer';
+import ItemsDetailContainer from './components/ItemsDetail/ItemsDetailContainer'
 
 
 
@@ -14,11 +16,20 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <BrowserRouter className="App">
       <NavBar nombreDeLaTienda="Flora" subtitulo="store"/>
-      <ItemsListContainer greeting="Welcome back!"/>     
+      <Switch>
+        <Route exact path="/">
+          <ItemsListContainer greeting="Welcome back!"/>
+        </Route>
+        <Route path="/Items/:id">
+          <ItemsDetailContainer/>
+        </Route>
+          
+      </Switch>
+         
       
-    </div>
+    </BrowserRouter>
   );
 }
 

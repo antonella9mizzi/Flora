@@ -1,6 +1,6 @@
 import react from 'react';
 import ItemsCSS from './Items.module.css';
-
+import ItemCount from '../ItemCount/ItemCount';
 
 const Items = ({Item}) => {
 return(
@@ -11,6 +11,7 @@ return(
             <p>
                 Precio: {Item.price}
             </p>
+            <ItemCount initial="0" stock={Item.stock}/>
         </div>
     </div>
 )   
