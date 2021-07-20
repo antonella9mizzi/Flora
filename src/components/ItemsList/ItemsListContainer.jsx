@@ -12,7 +12,7 @@ const ItemsListContainer = (props) =>{
             resolve(ArrayItems)
         },2000)
     })}
-    GetItems().then((resolve)=>setDisplayItems(ArrayItems))
+    GetItems().then((resolve)=>setDisplayItems(resolve))
     
     const ArrayItems = [
         {
