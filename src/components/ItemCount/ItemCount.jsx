@@ -20,10 +20,10 @@ const ItemCount = ({stock, initial}) => {
     }
 
     return(
-        <div className={ItemCountCSS.counterContainer}>
-            <button onClick={decrease} className={ItemCountCSS.counterBtn}>-</button>
-            <h2>{count}</h2>
-            <button onClick={increase} className={ItemCountCSS.counterBtn}>+</button>  
+        <div className={ItemCountCSS.btnBox}>
+            <button onClick={decrease} className={ItemCountCSS.btnSubtract}>-</button>
+            <h2 className={ItemCountCSS.btnNum}>{count}</h2>
+            <button onClick={increase} className={ItemCountCSS.btnAdd}>+</button>  
         </div>
     )
 }

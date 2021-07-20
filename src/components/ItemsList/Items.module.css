@@ -1,15 +1,49 @@
 .displayItems{
     display: flex;
     flex-direction: row;
-    padding-right: 1%;
-    margin: 2%;
     align-items: center;
- 
+    justify-content: center;
+}
+.divBox{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    padding: 2% 1% 2% 1%;
+    margin-left: 1%;
 }
 .imgItems{
-    width: 15vw;
-    height: auto;
+    width: 330px;
+    height: 330px;
+}
+.infoBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 2%;
 }
 .infoBtn{
-    width: 25%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    border: 0.5px solid #4A6650 ;
+    border-radius: 15px;
+    background-color: transparent;
+    padding: 5% 20% 5% 20%;
+}
+.infoBtn:hover {
+    background-color: #4A6650;
+    color: white;
+}
+
+.infoBtn:active {
+    background-color: #4A6650;
+    color: white;
+    box-shadow: 0 5px #666;
+    transform: translateY(2px);
+}
+.price{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
 }

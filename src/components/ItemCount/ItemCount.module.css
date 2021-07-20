@@ -1,26 +1,35 @@
-.counterContainer{
+.btnBox{
+    width: 98%;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    
 }
 
-.counterBtn{
-    width: 30px;
-    height: 30px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: bold;
-    font-size: 1rem;
-    background: #92A889;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px -1px rgba(0, 0, 0, 0.25);
-    border: transparent;
-    color: white;
-    margin: 0 1vw 0 1vw;
+.btnSubtract{
+    width: 5vw;
+    background-color: transparent;
+    border: 0.5px solid #4A6650;
+    border-radius: 20px 0px 0px 20px;
 }
-h2{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 1.5rem;
+.btnAdd{
+    width: 5vw;
+    background-color: transparent;
+    border: 0.5px solid #4A6650;
+    border-radius: 0px 20px 20px 0px;
+}
+.btnNum{
+    width: 10vw;
+    text-align: center;
+    border-bottom: 0.5px solid #4A6650;
+    border-top: 0.5px solid #4A6650;
+
+}
+.btnSubtract:hover,.btnAdd:hover {
+    background-color: #4A6650;
+    color: white;
+}
+
+.btnSubtract:active,.btnAdd:active {
+    background-color: #4A6650;
+    color: white;
+    box-shadow: 0 5px #666;
+    transform: translateY(2px);
 }
