@@ -1,9 +1,8 @@
 import react from 'react';
 import ItemsCSS from './Items.module.css';
-import ItemCount from '../ItemCount/ItemCount';
+import {Link} from 'react-router-dom';
 
 const Items = ({Item}) => {
-const LinkTo = "/items/"  + Item.id;
     return(
         <div className={ItemsCSS.divBox}>
             <h3>{Item.name}</h3>
@@ -11,14 +10,12 @@ const LinkTo = "/items/"  + Item.id;
             <div>
                 <div className={ItemsCSS.infoBox}>
                     <p className={ItemsCSS.price}>${Item.price}</p>
-                    <a href={LinkTo}>
+                    <Link to={"/items/" + Item.id}  >
                         <button className={ItemsCSS.infoBtn}>+INFO</button>
-                    </a>
+                    </Link>
                 </div>
-                <ItemCount initial="0" stock={Item.stock}/> 
             </div>
         </div>
 )   
-
 }
 export default Items;
