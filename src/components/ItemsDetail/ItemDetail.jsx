@@ -6,16 +6,16 @@ import {Link} from 'react-router-dom';
 
 
 const ItemDetail = ({itemDetail}) =>{
-const {addToCart, removeItem} = useContext(CartContext);
-const [count, setCount] = useState(1);
-const [finished, setFinished] = useState(false);
-const handleState = () => setFinished(!finished);
-const sendToCart = () =>{
-  addToCart({...itemDetail, quantity: count});
-}
-const removeFromCart = () => {
-  removeItem(itemDetail)
-}
+  const {addToCart, removeItem} = useContext(CartContext);
+  const [count, setCount] = useState(1);
+  const [finished, setFinished] = useState(false);
+  const handleState = () => setFinished(!finished);
+  const sendToCart = () =>{
+    addToCart({...itemDetail, quantity: count});
+  }
+  const removeFromCart = () => {
+    removeItem(itemDetail)
+  }
   return(
         <div className={ItemsDetailCSS.display}>
             <div className={ItemsDetailCSS.divBox}>
@@ -30,8 +30,7 @@ const removeFromCart = () => {
                         <ItemCount initial="1" stock={itemDetail.stock} count={count} setCount={setCount}/>
                         <button onClick={()=>{
                           handleState();
-                          sendToCart();}}
-                          className={ItemsDetailCSS.buy}>
+                          sendToCart();}} className={ItemsDetailCSS.buy}>
                           Comprar
                         </button>
                       </div>

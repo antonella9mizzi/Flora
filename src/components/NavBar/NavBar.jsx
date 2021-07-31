@@ -7,14 +7,16 @@ const NavBar = (props) => {
     return(
         <nav >
             <div className={NavBarCSS.navFlex}>
-            <Link to={"/"}>
-                <h1>{props.nombreDeLaTienda}</h1>
-            </Link>
+                <Link to={"/"}>
+                    <h1>{props.nombreDeLaTienda}</h1>
+                </Link>
                 <ul className={NavBarCSS.navFlex}>
                     <li>Our products</li>
                     <li>Plantcare</li>
                     <li>Contact Us</li>
-                    <Cart></Cart>
+                    <Link to={"/cart"}>
+                        <Cart/>
+                    </Link>
                 </ul>
             </div>
         </nav>
