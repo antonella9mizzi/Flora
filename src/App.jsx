@@ -19,7 +19,8 @@ function App() {
             <CartWidget/>
           </Route>
           <Route exact path="/">
-            <ItemsListContainer greeting="Welcome back!"/>
+          <ItemsListContainer greeting="Welcome back!"/>
+
           </Route>
           <Route path="/items/:id">
             <ItemsDetailContainer/>
