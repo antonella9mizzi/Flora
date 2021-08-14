@@ -18,9 +18,10 @@ const ItemsListContainer = (props) =>{
             })
         ));
     }
+
     return(
         <div>
-            <button onClick={GetItems}>Get Item</button>
+            {GetItems()}
             {productosMostrar.length ? (
                 productosMostrar.map((producto) => (
                     <Items producto={producto} key={producto.id}/>
