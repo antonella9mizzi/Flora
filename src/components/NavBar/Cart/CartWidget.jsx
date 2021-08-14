@@ -3,9 +3,11 @@ import { CartContext } from '../../../context/CartContext';
 import { Link } from 'react-router-dom';
 import ItemDetail from '../../ItemsDetail/ItemDetail';
 import CartCSS from './Cart.module.css'
-
-
+import firebase from "firebase/app";
+import { database } from "../../../firebase/firebase";
+import Form from './Form/Form';
 const CartWidget = () => {
+
     const {cartItems,removeItem} = useContext(CartContext);
     const TotalPrice = cartItems.reduce((a,c)=>a + c.price * c.quantity,0);
     return (
@@ -28,6 +30,7 @@ const CartWidget = () => {
                 <div>
                     <hr/>
                     <h2>Total a pagar: ${TotalPrice}</h2>
+                    <Form cartItems={cartItems}/>
                  </div> 
                 </>
                 )}
