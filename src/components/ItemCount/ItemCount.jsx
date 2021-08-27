@@ -1,4 +1,4 @@
-import react, { useState } from 'react';
+import React from 'react';
 import ItemCountCSS from './ItemCount.module.css';
 // import ItemDetail from '../ItemsDetail/ItemDetail';
 

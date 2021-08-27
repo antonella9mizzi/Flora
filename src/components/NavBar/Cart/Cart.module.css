@@ -1,11 +1,16 @@
 .container{
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 2%;
-    width: fit-content;
+    
+}
+.formContainer{
+    padding: 5%;
+    width: 95%;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
 }
 .itemImg{
     height:20vh;
@@ -32,4 +37,39 @@
     height: 20vh;
     width: 10vh;
     background-color: #1F2F22;
+}
+
+.btn{
+    background-color: #1F2F22; 
+    color: white;
+    width: 10vw;
+    height: 5vh;
+    border: transparent;
+    border-radius: 2px;
+    padding: 2%;
+    font: 2vw;
+    margin-top: 5%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+input{
+    width: 85%;
+    height: 3vh;
+    padding: 2%;
+    margin: 2%
+}
+.buttonForm{
+    background-color: #1F2F22; 
+    color: white;
+    width: 50%;
+    height: 5vh;
+    border: transparent;
+    border-radius: 2px;
+    padding: 2%;
+    font: 2vw;
 }

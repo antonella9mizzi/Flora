@@ -1,4 +1,4 @@
-import react from 'react';
+import React from 'react';
 import ItemsCSS from './Items.module.css';
 import {Link} from 'react-router-dom';
 

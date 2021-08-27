@@ -18,3 +18,7 @@ ul{
 ul li {
     margin: 0 0.75vw;
 }
+.logo{
+    color: white;
+    text-decoration: none;
+}

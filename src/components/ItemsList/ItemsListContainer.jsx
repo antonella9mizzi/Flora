@@ -1,35 +1,61 @@
-import react, { useState } from'react';
-import ItemCount from '../ItemCount/ItemCount';
-import ItemsList from './ItemsList';
+import React, { useState, useEffect } from'react';
 import Items from './Items';
-import ItemsCSS from './Items.module.css';
+import  ItemsCSS from './Items.module.css';
 import { database } from '../../firebase/firebase';
+import { useParams } from "react-router-dom";
 
-const ItemsListContainer = (props) =>{
 
-    const [productosMostrar, setProductosMostrar] = useState([]); // displayItems , setDisplayItems
-    
-    const GetItems = () => {
-        const productos = database.collection("plantas")
-        productos.get().then((query) => 
+const ItemsListContainer = () =>{
+
+    const [productosMostrar, setProductosMostrar] = useState([]); 
+    const {categoryId} = useParams();
+
+    useEffect(() => {
+        setProductosMostrar([]);
+        const productos = database.collection("plantas");
+
+        if (categoryId) {
+        productos
+            .where("categoria", "==", categoryId)
+            .get()
+            .then((query) =>
+            setProductosMostrar(
+                query.docs.map((doc) => {
+                return { ...doc.data(), id: doc.id };
+                })
+            )
+            );
+        } else {
+        productos.get().then((query) =>
             setProductosMostrar(
             query.docs.map((doc) => {
-                return { ...doc.data(), id: doc.id};
+                return { ...doc.data(), id: doc.id };
             })
-        ));
-    }
-
-    return(
-        <div>
-            {GetItems()}
-            {productosMostrar.length ? (
-                productosMostrar.map((producto) => (
-                    <Items producto={producto} key={producto.id}/>
-                ))
-            ):(
-                <h3>Cargando</h3>
-            )}
-        </div>
+            )
+        );
+        }
+    }, [categoryId]);
+    
+    // const GetItems = () => {
+    //     const productos = database.collection("plantas")
+    //     productos.get().then((query) => 
+    //         setProductosMostrar(
+    //         query.docs.map((doc) => {
+    //             return { ...doc.data(), id: doc.id};
+    //         })
+    //     ));
+    // }
+    return(       
+        <div className={ItemsCSS.displayItems}>
+           <div>
+            {/* {GetItems()} */}
+            </div>
+            {productosMostrar.map((producto) => (
+             <div>
+                <Items producto={producto} key={producto.id}/>
+            </div>            
+            ))}       
+        </div>     
     )
 };
 export default ItemsListContainer;

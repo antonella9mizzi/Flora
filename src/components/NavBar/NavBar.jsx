@@ -1,22 +1,23 @@
-import react from "react";
+import React from "react";
 import NavBarCSS from "./NavBar.module.css";
 import Cart from "./Cart/Cart";
-import {Link} from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 const NavBar = (props) => {
     return(
         <nav >
             <div className={NavBarCSS.navFlex}>
-                <Link to={"/"}>
-                    <h1>{props.nombreDeLaTienda}</h1>
-                </Link>
+                <NavLink to={"/"}>
+                    <h1 className={NavBarCSS.logo}>{props.nombreDeLaTienda}</h1>
+                </NavLink>
                 <ul className={NavBarCSS.navFlex}>
-                    <li>Our products</li>
-                    <li>Plantcare</li>
-                    <li>Contact Us</li>
-                    <Link to={"/cart"}>
+                    <li >
+                        Plantas</li>
+                    <li >Flores</li>
+                    <li >Arboles</li>
+                    <NavLink to={"/cart"}>
                         <Cart/>
-                    </Link>
+                    </NavLink >
                 </ul>
             </div>
         </nav>
