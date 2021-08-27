@@ -1,6 +1,6 @@
 # Flora
 
-![GIF-Flora](public\imgs\GIF-Flora.gif)
+![GIF-Flora](public/imgs/GIF-Flora.gif)
 
 
 **Deploy**: https://florastore.netlify.app/
