@@ -1,7 +1,9 @@
 # Flora
 
+![GIF-Flora](public\imgs\GIF-Flora.gif)
 
 
+**Deploy**: https://florastore.netlify.app/
 
 ### Description
 
@@ -19,7 +21,7 @@ Made by Antonella Mizzi
 ### HOW TO SET IT UP:
 
 
-​
+
 
 - Clone this repository
 - Using your terminal, navigate to the repo's directory
