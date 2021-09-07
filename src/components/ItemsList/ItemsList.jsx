@@ -5,48 +5,31 @@ import { database } from '../../firebase/firebase';
 import { useParams } from "react-router-dom";
 
 const ItemsList = () =>{
-    const [productosMostrar, setProductosMostrar] = useState([]); 
-    const {categoryId} = useParams();
+    const [itemListState, setItemListState] = useState([]);
+    const [load, setLoad] = useState(false);
 
-    useEffect(() => {
-        setProductosMostrar([]);
-        const productos = database.collection("plantas");
+    const obtenerLista = ()=> {
+        const listaProductos = database.collection('plantas');
+            
+        listaProductos.get().then((query) => setItemListState(query.docs.map((doc) => {
+            setLoad(true);
+            return {...doc.data(), producto: doc.id}         
+        })))       
+    }
+    useEffect(()=>{
+    obtenerLista();
+    },[]);
 
-        if (categoryId) {
-        productos
-            .where("categoria", "==", categoryId)
-            .get()
-            .then((query) =>
-            setProductosMostrar(
-                query.docs.map((doc) => {
-                return { ...doc.data(), id: doc.id };
-                })
-            )
-            );
-        } else {
-        productos.get().then((query) =>
-            setProductosMostrar(
-            query.docs.map((doc) => {
-                return { ...doc.data(), id: doc.id };
-            })
-            )
-        );
-        }
-    }, [categoryId]);
-    
-   
-    return(       
-        <div className={ItemsCSS.displayItems}>
-           <div>
-            {/* {GetItems()} */}
-            </div>
-            {productosMostrar.map((producto) => (
-             <div>
-                <Items producto={producto} key={producto.id}/>
-            </div>            
-            ))}       
-        </div>     
-    )
-     
+return(
+ 
+    <div className={ItemsCSS.displayItems}>
+        {load ? itemListState.map(
+                 producto => (
+                    <Items producto={producto} key={producto.id} />
+                )
+          ):  <h5>Cargando...</h5> }           
+    </div>
+ 
+)
 }
 export default ItemsList;
