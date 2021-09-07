@@ -73,3 +73,19 @@ input{
     padding: 2%;
     font: 2vw;
 }
+.cartBtn{
+    background-color: transparent;
+    border: none;
+}
+.cartWidget{
+    background-color: #335C67;
+    color: #E09F3E;
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 50%;
+    height: 35px;
+    margin-top: 0px;
+    margin-left: 5px;
+    position: absolute;
+
+}
