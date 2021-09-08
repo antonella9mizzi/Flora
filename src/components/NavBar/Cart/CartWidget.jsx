@@ -7,24 +7,18 @@ import Form from './Form/Form';
 
 const CartWidget = () => {
 
-    const {cartItems, cleanCart, totalPrice} = useContext(CartContext);
-    const costo = cartItems.map(item => item.precio * item.cantidad);
-    
+    const {cartItems, cleanCart, totalPrice, removeItem} = useContext(CartContext);
 
     return (
         <div className={CartCSS.container}>
             {cartItems.length > 0
                 ? <div className={CartCSS.container}>
-                    <h2>Tienes {cartItems.length} productos en tu carrito</h2>
+                    <h2>Tienes {cartItems.length} producto/s en tu carrito</h2>
                     <div>
-                        {cartItems.map(itemReceived => <CartItem itemReceived={itemReceived} key={itemReceived.id}/> )} 
+                        {cartItems.map(itemReceived => <CartItem itemReceived={itemReceived} key={itemReceived.id} removeItem={removeItem}/> )} 
                     </div> 
-                    <div>
-                        <h5>Total ${totalPrice}</h5>
-                    </div>
-                    <div>
-                        <button onClick={cleanCart}>Vaciar Carrito</button>                
-                    </div>
+                    <h3>Total a pagar: ${totalPrice}</h3>
+                    <button onClick={cleanCart} className={CartCSS.btn}>Vaciar Carrito</button>  
                     <Form cartItems={cartItems}/>        
                 </div>
                 :

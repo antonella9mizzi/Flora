@@ -31,7 +31,7 @@ const Form = (cartItems, TotalPrice) =>{
                 <input type="text" placeholder="Name" id="name"/>
                 <input type="tel"  placeholder="Phone" id="phone"/>
                 <input type="email"  placeholder="Email" id="email"/>
-                <button type="submit" className={CartCSS.buttonForm}>Salir y Pagar</button>
+                <button type="submit" className={CartCSS.btn}>Salir y Pagar</button>
             </form>
           </div>
            

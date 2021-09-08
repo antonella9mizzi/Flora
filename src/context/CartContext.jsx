@@ -7,11 +7,11 @@ export const CartProvider = ({children}) => {
     const [cartItems, setCartItem] = useState([]);
 
     
-    const addToCart = (itemReceived) => {
-         setCartItem([...cartItems, itemReceived])
+    const addToCart = (itemDetail) => {
+         setCartItem([...cartItems, itemDetail])
     }
-    const removeItem = (itemReceived) => {
-        let itemRemoved = cartItems.filter (itemDetail => itemDetail.id !== itemReceived.id);
+    const removeItem = (itemDetail) => {
+        const itemRemoved = cartItems.filter ((itemReceived) => itemReceived.id !== itemDetail.id);
         setCartItem(itemRemoved)
     }
     const cleanCart = () => setCartItem([]);
@@ -20,6 +20,7 @@ export const CartProvider = ({children}) => {
         return acc = acc + (price*quantity);
     },0);
 
+  
     return <CartContext.Provider value={{cartItems, setCartItem, addToCart, removeItem, cleanCart, totalPrice}}>
         {children}
     </CartContext.Provider>
