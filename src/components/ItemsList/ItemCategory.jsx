@@ -2,14 +2,16 @@ import React,{useState, useEffect} from "react";
 import { useParams } from "react-router";
 import Items from "./Items";
 import { database } from "../../firebase/firebase";
-// import { Link } from "react-router-dom";
+import ItemsCSS from './Items.module.css';
+
 
 const ItemCategory = () =>{
-    const {id: idParams} = useParams()
-    const [category, setCategory] = useState([]);
-    const [name, setName] = useState('')
+    const {id: idParams} = useParams();
+    const [name, setName] = useState('');
     const [load, setLoad] = useState(false);
-
+    const [category, setCategory] = useState([]);
+   
+    
     function nameCategory(id){
         if(id === '1'){
         console.log('hola')
@@ -41,9 +43,9 @@ const ItemCategory = () =>{
     }
 
     return (
-        <div className="contenedor-items-category">
+        <div >
             <h3>{name}</h3>
-            <div className='category-list'>                
+            <div className={ItemsCSS.displayItems}>                
                 { load ?
                 category.map(
                     producto => (

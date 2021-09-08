@@ -5,6 +5,8 @@ import ItemsListContainer from './components/ItemsList/ItemsListContainer';
 import ItemsDetailContainer from './components/ItemsDetail/ItemsDetailContainer'
 import { CartProvider } from './context/CartContext';
 import CartWidget from './components/NavBar/Cart/CartWidget';
+import ItemCategory from './components/ItemsList/ItemCategory';
+import NavCategories from './components/NavBar/Categories/NavCategories';
 
 
 
@@ -13,14 +15,19 @@ function App() {
   return (
     <CartProvider>
       <BrowserRouter className="App">
-        <NavBar nombreDeLaTienda="Flora" subtitulo="store"/>
+        <div> 
+          <NavBar nombreDeLaTienda="Flora" subtitulo="store"/>
+        </div>
+        
         <Switch>
           <Route exact path="/cart">
             <CartWidget/>
           </Route>
+          <Route path='/categoria/:id'>
+            <ItemCategory/>
+         </Route>
           <Route exact path="/">
           <ItemsListContainer greeting="Welcome back!"/>
-
           </Route>
           <Route path="/items/:id">
             <ItemsDetailContainer/>

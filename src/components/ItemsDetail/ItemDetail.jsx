@@ -48,8 +48,9 @@ const ItemDetail = ({itemDetail}) =>{
                 </div>
             </div>
             <div className={ItemsDetailCSS.descriptionBox}>
-                <h2>Descripcion</h2>
+                <h2>Descripcion</h2> <hr />
                 <p>{itemDetail.description}</p>
+                <Link to="/"> <h4>Volver al inicio →</h4></Link>
             </div>
         </div>
     )

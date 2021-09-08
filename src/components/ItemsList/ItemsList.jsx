@@ -13,7 +13,7 @@ const ItemsList = () =>{
             
         listaProductos.get().then((query) => setItemListState(query.docs.map((doc) => {
             setLoad(true);
-            return {...doc.data(), producto: doc.id}         
+            return {...doc.data(), id: doc.id}         
         })))       
     }
     useEffect(()=>{
