@@ -4,31 +4,23 @@ import { database } from '../../firebase/firebase';
 import ItemDetail from '../ItemsDetail/ItemDetail';
 
 const ItemsDetailContainer = () => {
-    const { id } = useParams();
-    const [itemDetail, setItemDetail] = useState();
+  const { id } = useParams();
+  const [itemDetail, setItemDetail] = useState({});
 
   useEffect(() => {
-    const db = database;
-    const itemCollection = db.collection("plantas");
-    const idItem = itemCollection.doc(id);
+    setItemDetail({});
+    const itemCollection = database.collection("plantas").doc(id);
 
-    idItem.get().then((response) => {
-      setItemDetail(response.data());
+    itemCollection.get().then((response) => {
+      setItemDetail({ ...response.data(), id: response.id });
     });
   }, [id]);
 
-    const ReturnItemDetail = () =>{
-        if (!itemDetail) {
-            return <p>Cargando...</p>;
-          }
-        return <ItemDetail itemDetail={itemDetail} />;
-    }
-
-    return(
-        <div>
-             <ReturnItemDetail/>
-        </div>
-    )
+  return (Object.entries(itemDetail).length === 0)
+    ? <h3>Cargando...</h3>
+    : <ItemDetail itemDetail={itemDetail} key={itemDetail.id} />;
 }
+
+
 
 export default ItemsDetailContainer;
