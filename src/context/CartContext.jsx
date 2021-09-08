@@ -6,21 +6,22 @@ export const CartContext = createContext();
 export const CartProvider = ({children}) => {
     const [cartItems, setCartItem] = useState([]);
 
-    const notInCart = (itemReceived)  => cartItems.filter(itemDetail => itemDetail.id === itemReceived.id).length === 0; //Si esto es true entonces item no esta en el carrito
-    const addToCart = (itemReceived) => {
-        if (notInCart(itemReceived)){
-            setCartItem([...cartItems, itemReceived])
-        } else{
-            alert("Ya agregaste este producto a tu carrito")
-        }
+    
+    const addToCart = (itemDetail) => {
+         setCartItem([...cartItems, itemDetail])
     }
-    const removeItem = (itemReceived) => {
-        let itemsExceptRemoved = cartItems.filter (itemDetail => itemDetail.id !== itemReceived.id);
-        setCartItem(itemsExceptRemoved)
+    const removeItem = (itemDetail) => {
+        const itemRemoved = cartItems.filter ((itemReceived) => itemReceived.id !== itemDetail.id);
+        setCartItem(itemRemoved)
     }
-    const CleanCart = () => setCartItem([]);
+    const cleanCart = () => setCartItem([]);
+    
+    const totalPrice = cartItems.reduce((acc,{quantity,price}) => {
+        return acc = acc + (price*quantity);
+    },0);
 
-    return <CartContext.Provider value={{cartItems, setCartItem, addToCart, removeItem, CleanCart}}>
+  
+    return <CartContext.Provider value={{cartItems, setCartItem, addToCart, removeItem, cleanCart, totalPrice}}>
         {children}
     </CartContext.Provider>
 }
