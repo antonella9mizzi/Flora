@@ -14,7 +14,6 @@ const ItemCategory = () =>{
     
     function nameCategory(id){
         if(id === '1'){
-        console.log('hola')
          setName('Plantas')
         } else if( id === '2'){
            setName('Flores')
@@ -26,8 +25,8 @@ const ItemCategory = () =>{
     useEffect(()=>{
         handlercategory();
         nameCategory(idParams);
-    },[idParams]);
-
+    },[idParams]);// eslint-disable-line react-hooks/exhaustive-deps 
+    /* ↑ Solves console warning*/
     function handlercategory(){
         getList(idParams);
     }

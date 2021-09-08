@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Items from './Items';
 import  ItemsCSS from './Items.module.css';
 import { database } from '../../firebase/firebase';
-import { useParams } from "react-router-dom";
+
 
 const ItemsList = () =>{
     const [itemListState, setItemListState] = useState([]);

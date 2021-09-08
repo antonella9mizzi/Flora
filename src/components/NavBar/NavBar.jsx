@@ -13,9 +13,9 @@ const NavBar = (props) => {
                 </NavLink>
                 <ul className={NavBarCSS.navFlex}>
                     <NavCategories/>
-                    <NavLink to={"/cart"}>
-                        <Cart/>
-                    </NavLink >
+                    
+                    <Cart/>
+                    
                 </ul>
             </div>
         </nav>

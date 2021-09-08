@@ -6,7 +6,6 @@ import ItemsDetailContainer from './components/ItemsDetail/ItemsDetailContainer'
 import { CartProvider } from './context/CartContext';
 import CartWidget from './components/NavBar/Cart/CartWidget';
 import ItemCategory from './components/ItemsList/ItemCategory';
-import NavCategories from './components/NavBar/Categories/NavCategories';
 
 
 
